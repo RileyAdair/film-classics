@@ -1,0 +1,91 @@
+@font-face {
+  font-family: 'gilroy-bold';
+  src: url('./assets/fonts/gilroy-extrabold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'gilroy-light';
+  src: url('./assets/fonts/gilroy-light-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+}
+
+body {
+  font-family: 'gilroy-light';
+  background: #F4F4F4;
+  color: #2E2E2E;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: #2E2E2E;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #1e1e1e;
+  padding: 15px 0;
+  z-index: 100;
+}
+
+.logo {
+  color: #fff;
+  letter-spacing: .25px;
+  cursor: pointer;
+}
+
+.gold {
+  color: #877650;
+}
+
+.bold {
+  font-family: 'gilroy-bold';
+  letter-spacing: .25px;
+  margin-bottom: 6px;
+}
+
+footer {
+  width: 100%;
+  background: #1e1e1e;
+  color: #877650;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-width {
+  width: 88%;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+@media all and (min-width: 1024px) {
+  .content-width {
+    width: 90%;
+    max-width: 1400px;
+  }
+}

@@ -1,0 +1,84 @@
+/*FILM STYLES*/
+.film-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 56px;
+}
+
+.film-backdrop {
+  width: 100%;
+  height: auto;
+}
+
+.film-header-container {
+  width: 100%;
+  background: #2E2E2E;
+  color: #fff;
+  margin-top: -6px;
+  padding: 10% 0;
+}
+
+.film-body-container {
+  width: 100%;
+  padding: 10% 0;
+  margin: 0 auto;
+}
+
+.film-poster {
+  width: 100%;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.film-overview, .film-release-date, .film-vote-average {
+  padding-bottom: 10%;
+}
+
+.film-release-date {
+  margin-right: 18%;
+}
+
+@media all and (min-width: 768px) {
+  .film-header-container {
+    padding: 6% 0;
+  }
+  .film-overview, .film-release-date, .film-vote-average {
+    padding-bottom: 6%;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .film-backdrop {
+    display: none;
+  }
+
+  .film-header-container {
+    padding: 8% 0;
+  }
+
+  .film-title {
+    font-size: 36px
+  }
+
+  .film-tag-line {
+    font-size: 28px;
+  }
+
+  .film-poster-container {
+    width: 40%;
+  }
+
+  .film-poster {
+    display: block;
+  }
+
+  .film-description-container {
+    width: 60%;
+    padding-left: 6%;
+  }
+
+  .film-overview, .film-release-date, .film-vote-average {
+    padding-bottom: 8%;
+  }
+}

@@ -1,0 +1,38 @@
+/*BUTTON STYLES*/
+.btn {
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  border: 0;
+  border-radius: 5px;
+  padding: 12px 13px 13px;
+  transition: all .2s ease;
+  letter-spacing: .25px;
+  min-width: 130px;
+  white-space: normal;
+  text-transform: uppercase;
+  line-height: 1.6;
+  vertical-align: middle;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn:active, .btn:focus {
+  outline: none;
+  border: none;
+}
+
+.twitter-btn {
+  background: linear-gradient(to right, #49ACDA,#64A2F8);
+}
+
+.fa-twitter {
+  padding-left: 4px;
+}
