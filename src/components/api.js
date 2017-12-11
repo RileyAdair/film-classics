@@ -1,8 +1,7 @@
 import axios from 'axios';
-import { key } from '../config'
+import { apiKey } from '../config'
 
 const apiURL = 'https://api.themoviedb.org/3/';
-const apiKey = key();
 
 // Image URL for film backdrops and posters
 export const imageURL = () => {
