@@ -11,6 +11,7 @@ class Home extends Component {
       topRatedList: [],
       show: false
     }
+    this.allRefs = []
   }
 
   componentDidMount() {
@@ -23,21 +24,24 @@ class Home extends Component {
   render() {
     return (
       <div className="home-container">
-        <button onClick={() => this.setState({show: !this.state.show})}>Toggle</button>
-        {this.state.topRatedList.map(x => {
-          return(
-            <ReactTransitionGroup key={x.id}>
-              {this.state.show &&
+      {this.state.topRatedList.map((x,i) => {
+        return (
+          <ReactTransitionGroup key={x.id}>
+             {
+               this.state.topRatedList[0] &&
                 <TopRatedItem
                   id={x.id}
                   backdrop={x.backdrop_path}
                   poster={x.poster_path}
                   title={x.title}
-                  vote={x.vote_average} />
-              }
+                  vote={x.vote_average}
+                  index={i}
+                  ref={ref => this.allRefs.push(ref)}
+                  />
+             }
             </ReactTransitionGroup>
-          )
-        })}
+            )
+          })}
       </div>
     )
   }
