@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactTransitionGroup from 'react-addons-transition-group';
 import { getTopRated } from '../api';
 import TopRatedItem from './TopRatedItem/TopRatedItem';
 import './Home.css';
@@ -7,7 +8,8 @@ class Home extends Component {
   constructor() {
     super()
     this.state = {
-      topRatedList: []
+      topRatedList: [],
+      show: false
     }
   }
 
@@ -21,15 +23,20 @@ class Home extends Component {
   render() {
     return (
       <div className="home-container">
+        <button onClick={() => this.setState({show: !this.state.show})}>Toggle</button>
         {this.state.topRatedList.map(x => {
           return(
-            <TopRatedItem
-              key={x.id}
-              id={x.id}
-              backdrop={x.backdrop_path}
-              poster={x.poster_path}
-              title={x.title}
-              vote={x.vote_average} />
+            <ReactTransitionGroup>
+              {this.state.show &&
+                <TopRatedItem
+                  key={x.id}
+                  id={x.id}
+                  backdrop={x.backdrop_path}
+                  poster={x.poster_path}
+                  title={x.title}
+                  vote={x.vote_average} />
+              }
+            </ReactTransitionGroup>
           )
         })}
       </div>
