@@ -9,7 +9,7 @@ class Home extends Component {
     super()
     this.state = {
       topRatedList: [],
-      // show: false
+      show: false
     }
   }
 
@@ -27,14 +27,14 @@ class Home extends Component {
         {this.state.topRatedList.map(x => {
           return(
             <ReactTransitionGroup key={x.id}>
-              {/* {this.state.show && */}
+              {this.state.show &&
                 <TopRatedItem
                   id={x.id}
                   backdrop={x.backdrop_path}
                   poster={x.poster_path}
                   title={x.title}
                   vote={x.vote_average} />
-              {/* } */}
+              }
             </ReactTransitionGroup>
           )
         })}

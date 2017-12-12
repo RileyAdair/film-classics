@@ -4,7 +4,7 @@ const duration = 0.33
 
 export default {
   show(target, cb) {
-    console.log('show', target, duration, cb)
+    // console.log('show', target, duration, cb)
 
     return TweenMax.to(target, duration, {
       opacity: 1,
@@ -22,7 +22,7 @@ export default {
     return TweenMax.to(target, duration, {
       opacity: 0,
       onComplete() {
-        cb()
+        cb ? cb() : null
       },
     })
   }

@@ -9,9 +9,9 @@ class TopRatedItem extends Component {
     this.state = {
 
     }
+    this.handleClick = this.handleClick.bind(this)
   }
-
-  componentWillEnter(cb) {
+componentWillEnter(cb) {
     gsap.show(this.item, cb)
   }
 
@@ -19,10 +19,16 @@ class TopRatedItem extends Component {
       gsap.hide(this.item, cb)
   }
 
+  handleClick() {
+    console.log(this.props);
+    gsap.hide(this.item);
+    // this.props.history.push(`/listings/${category}/all`);
+  }
+
   render() {
     return (
-      <div className="top-rated-item" ref={ref => this.item = ref}>
-        <Link to={`/film/${this.props.id}`}>
+      <div className="top-rated-item" ref={ref => this.item = ref} onClick={this.handleClick}>
+
           <img className="item-backdrop" src={imageURL() + this.props.backdrop} alt="Backdrop"/>
           <img className="item-poster" src={imageURL() + this.props.poster} alt="Poster"/>
           <div className="item-description-container">
@@ -31,7 +37,7 @@ class TopRatedItem extends Component {
               {this.props.vote} <i className="fa fa-star" aria-hidden="true"></i>
             </div>
           </div>
-        </Link>
+
       </div>
     )
   }
