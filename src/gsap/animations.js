@@ -22,8 +22,8 @@ export default {
   showStagger(targets, cb) {
 
   },
-  hide(target, cb) {
-    console.log('hide', target, duration, cb)
+  hide(target, cb, duration) {
+    console.log('hide', target)
     return TweenMax.to(target, duration, {
       opacity: 0,
       onComplete() {

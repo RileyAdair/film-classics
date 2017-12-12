@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactTransitionGroup from 'react-addons-transition-group';
 import { getTopRated } from '../api';
+import gsap from '../../gsap/animations';
 import TopRatedItem from './TopRatedItem/TopRatedItem';
 import './Home.css';
 
@@ -12,6 +13,8 @@ class Home extends Component {
       show: false
     }
     this.allRefs = []
+    this.handleClick = this.handleClick.bind(this)
+    this.storeRef = this.storeRef.bind(this)
   }
 
   componentDidMount() {
@@ -19,6 +22,20 @@ class Home extends Component {
     getTopRated().then(response => {
       this.setState({topRatedList: response.data.results});
     })
+  }
+
+
+  storeRef(ref) {
+    this.allRefs.push(ref)
+  }
+
+
+  handleClick(id) {
+    const time = 2
+    gsap.hide(this.allRefs, null, time);
+    setTimeout(() => {
+      this.props.history.push(`/film/${id}`)
+    }, time*1000);
   }
 
   render() {
@@ -36,8 +53,9 @@ class Home extends Component {
                   title={x.title}
                   vote={x.vote_average}
                   index={i}
-                  ref={ref => this.allRefs.push(ref)}
-                  />
+                  handleClick={()=>this.handleClick(x.id)}
+                  storeRef={this.storeRef}
+                />
              }
             </ReactTransitionGroup>
             )

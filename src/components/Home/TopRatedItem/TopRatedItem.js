@@ -9,8 +9,7 @@ class TopRatedItem extends Component {
     this.state = {
 
     }
-    console.log('item was rendered');
-    this.handleClick = this.handleClick.bind(this)
+    // this.handleClick = this.handleClick.bind(this)
   }
   // used when component is initially render w/ TransitionGroup
   componentWillAppear(cb) {
@@ -40,19 +39,27 @@ class TopRatedItem extends Component {
     gsap.show(this.item, cb, this.props.index)
   }
 
+  componentDidMount() {
+    this.props.storeRef(this.item)
+  }
+
   componentWillLeave(cb) {
       gsap.hide(this.item, cb)
   }
 
-  handleClick() {
-    console.log(this.props);
-    gsap.hide(this.item);
-    this.props.history.push(`/film/${this.props.id}`);
-  }
+  // handleClick() {
+  //   const time = 2
+  //   gsap.hide(this.item, null, time);
+  //   console.log("start")
+  //   setTimeout(() => {
+  //     console.log("end")
+  //     this.props.changePage()
+  //   }, time*1000);
+  // }
 
   render() {
     return (
-      <div className="top-rated-item" ref={ref => this.item = ref} onClick={this.handleClick}>  
+      <div className="top-rated-item" ref={ref => this.item = ref} onClick={this.props.handleClick}>  
         <img className="item-backdrop" ref={ref => this.backdrop = ref} src={imageURL() + this.props.backdrop} alt="Backdrop"/>
         <img className="item-poster" ref={ref => this.poster = ref} src={imageURL() + this.props.poster} alt="Poster"/>
           <div className="item-description-container">
