@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import gsap from '../../../gsap/animations';
 import { imageURL } from '../../api';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class TopRatedItem extends Component {
   constructor(props) {
@@ -20,8 +20,8 @@ componentWillEnter(cb) {
   }
 
   handleClick() {
-    console.log(this.props);
-    gsap.hide(this.item);
+    console.log(this.props.);
+    gsap.hide(this.item)
     // this.props.history.push(`/listings/${category}/all`);
   }
 
