@@ -2,6 +2,8 @@ import React from 'react';
 import { imageURL } from '../../api';
 import { Link } from 'react-router-dom';
 
+// this is a test
+
 const TopRatedItem = (props) => {
   return (
     <div className="top-rated-item">
