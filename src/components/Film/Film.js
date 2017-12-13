@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactTransitionGroup from 'react-addons-transition-group';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { getFilmData } from '../api';
 import FilmHeader from './FilmHeader/FilmHeader';
 import FilmBody from './FilmBody/FilmBody'
