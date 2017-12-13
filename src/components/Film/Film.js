@@ -42,7 +42,14 @@ class Film extends Component {
   render() {
     return(
       <div className="film-container">
-        <ReactTransitionGroup>
+        <ReactCSSTransitionGroup
+          key={x.id}
+          transitionName="AppearTransition"
+          transitionAppear={ true }
+          transitionAppearTimeout={ 400 }
+          transitionEnter={ false }
+          transitionLeave={ false }
+          >
           <FilmHeader
             backdrop={this.state.backdrop}
             tagline={this.state.tagline}
@@ -53,7 +60,7 @@ class Film extends Component {
             releaseDate={this.state.releaseDate}
             title={this.state.title}
             voteAvg={this.state.voteAvg}/>
-        </ReactTransitionGroup>
+        </ReactCSSTransitionGroup>
       </div>
     )
   }
