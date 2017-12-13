@@ -30,7 +30,7 @@ class Home extends Component {
 
   handleClick(id) {
     const time = .25
-    gsap.hide(this.allRefs, null, time);
+    gsap.hideTopRated(this.allRefs, null, time);
     setTimeout(() => {
       this.props.history.push(`/film/${id}`)
     }, time*1000);

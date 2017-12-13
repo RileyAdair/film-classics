@@ -15,7 +15,6 @@ class TopRatedItem extends Component {
 
     const backdropPromise = new Promise((resolve, reject) => {
       this.backdrop.onload = (e) => {
-          console.log(e)
           resolve()
       }
     })
@@ -27,7 +26,7 @@ class TopRatedItem extends Component {
     })
 
     const allPromises = Promise.all([backdropPromise, posterPromise]).then(() => {
-      gsap.show(this.item, cb, this.props.index)
+      gsap.showTopRated(this.item, cb, this.props.index)
     })
 
   }
@@ -39,10 +38,6 @@ class TopRatedItem extends Component {
 
   componentDidMount() {
     this.props.storeRef(this.item)
-  }
-
-  componentWillLeave(cb) {
-      gsap.hide(this.item, cb)
   }
 
   render() {

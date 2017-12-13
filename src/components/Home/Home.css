@@ -16,7 +16,7 @@
   cursor: pointer;
   opacity: 0;
   transform: translateY(200px);
-  transition: all .25s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .top-rated-item:hover {
