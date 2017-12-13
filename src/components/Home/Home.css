@@ -14,6 +14,8 @@
   margin-bottom: 32px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   cursor: pointer;
+  opacity: 0;
+  transform: translateY(200px);
   transition: all .25s ease-out;
 }
 
@@ -53,6 +55,7 @@
 
   .top-rated-item {
     margin-bottom: 6%;
+    min-height: 96%;
   }
 
   .item-backdrop {
@@ -81,5 +84,6 @@
 
   .top-rated-item {
     margin-bottom: 10%;
+    min-height: 94%;
   }
 }
