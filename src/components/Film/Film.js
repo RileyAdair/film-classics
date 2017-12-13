@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getFilmData, imageURL } from '../api';
+import ReactTransitionGroup from 'react-addons-transition-group';
+import { getFilmData } from '../api';
 import FilmHeader from './FilmHeader/FilmHeader';
 import FilmBody from './FilmBody/FilmBody'
 import './Film.css';
@@ -41,16 +42,18 @@ class Film extends Component {
   render() {
     return(
       <div className="film-container">
-        <img className="film-backdrop" src={imageURL() + this.state.backdrop} alt="Backdrop"/>
-        <FilmHeader
-          tagline={this.state.tagline}
-          title={this.state.title} />
-        <FilmBody
-          overview={this.state.overview}
-          poster={this.state.poster}
-          releaseDate={this.state.releaseDate}
-          title={this.state.title}
-          voteAvg={this.state.voteAvg}/>
+        <ReactTransitionGroup>
+          <FilmHeader
+            backdrop={this.state.backdrop}
+            tagline={this.state.tagline}
+            title={this.state.title} />
+          <FilmBody
+            overview={this.state.overview}
+            poster={this.state.poster}
+            releaseDate={this.state.releaseDate}
+            title={this.state.title}
+            voteAvg={this.state.voteAvg}/>
+        </ReactTransitionGroup>
       </div>
     )
   }

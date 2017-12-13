@@ -10,12 +10,11 @@ class TopRatedItem extends Component {
 
     }
   }
-  // used when component is initially render w/ TransitionGroup
+  // used when component is initially rendered w/ TransitionGroup
   componentWillAppear(cb) {
 
     const backdropPromise = new Promise((resolve, reject) => {
       this.backdrop.onload = (e) => {
-          console.log(e)
           resolve()
       }
     })
@@ -27,20 +26,20 @@ class TopRatedItem extends Component {
     })
 
     const allPromises = Promise.all([backdropPromise, posterPromise]).then(() => {
-      gsap.show(this.item, cb, this.props.index)
+      gsap.showTopRated(this.item, cb, this.props.index)
     })
 
   }
 
   // used when component is added to already rendered TransitionGroup
   componentWillEnter(cb) {
-    gsap.show(this.item, cb, this.props.index)
+    gsap.showTopRated(this.item, cb, this.props.index)
   }
 
   render() {
     return (
-      <div className="top-rated-item" ref={ref => this.item = ref} onClick={this.props.handleClick}>
-        <Link to="/film/${this.props.id}">
+      <div className="top-rated-item" ref={ref => this.item = ref}>
+        <Link to={`/film/${this.props.id}`}>
           <img className="item-backdrop" ref={ref => this.backdrop = ref} src={imageURL() + this.props.backdrop} alt="Backdrop"/>
           <img className="item-poster" ref={ref => this.poster = ref} src={imageURL() + this.props.poster} alt="Poster"/>
           <div className="item-description-container">

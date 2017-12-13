@@ -12,7 +12,6 @@ class Home extends Component {
       topRatedList: [],
       show: false
     }
-    this.allRefs = []
   }
 
   componentDidMount() {
