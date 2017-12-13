@@ -12,15 +12,14 @@ class FilmBody extends Component {
   }
   // used when component is initially rendered w/ TransitionGroup
   componentWillAppear(cb) {
-
-    const posterPromise = new Promise((resolve, reject) => {
+    // Animate FilmBody after image has loaded
+    return new Promise((resolve, reject) => {
       this.poster.onload = () => {
         resolve()
       }
     })
-
-    const allPromises = Promise.all([posterPromise]).then(() => {
-      gsap.showTopRated(this.body, cb, this.props.index)
+    .then(() => {
+      gsap.showFilmBody(this.body, cb)
     })
 
   }
@@ -30,7 +29,7 @@ class FilmBody extends Component {
       <div className="film-body-container" ref={ref => this.body = ref}>
         <div className="content-width flex">
           <div className="film-poster-container">
-            <img className="film-poster" ref={ref => this.poster = ref} src={imageURL() + this.props.poster} alt="Poster" />
+            <img className="film-poster" ref={ref => this.poster = ref} src={imageURL + this.props.poster} alt="Poster" />
           </div>
           <div className="film-description-container">
             <div className="film-overview">
@@ -48,7 +47,7 @@ class FilmBody extends Component {
               </div>
             </div>
             <TwitterButton
-              title={this.props.title}/>
+              title={this.props.title} />
           </div>
         </div>
       </div>

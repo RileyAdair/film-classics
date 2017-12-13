@@ -1,12 +1,10 @@
 import axios from 'axios';
-import { apiKey } from '../config'
+import { apiKey } from '../config';
 
 const apiURL = 'https://api.themoviedb.org/3/';
 
 // Image URL for film backdrops and posters
-export const imageURL = () => {
-  return 'http://image.tmdb.org/t/p/w780';
-}
+export const imageURL = 'http://image.tmdb.org/t/p/w780';
 
 // Get top rated films from The Movie Database API
 export const getTopRated = () => {

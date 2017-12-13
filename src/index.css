@@ -62,11 +62,13 @@ header {
 }
 
 footer {
+  position: relative;
   width: 100%;
   background: #1e1e1e;
   color: #877650;
   padding: 20px 0;
   font-size: 14px;
+  z-index: 100;
 }
 
 .footer-content {

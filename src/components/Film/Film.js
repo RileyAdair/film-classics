@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransitionGroup, TransitionGroup } from 'react-transition-group';
 import { getFilmData } from '../api';
 import FilmHeader from './FilmHeader/FilmHeader';
 import FilmBody from './FilmBody/FilmBody'
@@ -39,14 +39,15 @@ class Film extends Component {
     })
   }
 
+
+
   render() {
     return(
       <div className="film-container">
-        <ReactCSSTransitionGroup
-          key={x.id}
-          transitionName="AppearTransition"
+        <CSSTransitionGroup
+          transitionName="ShowFilmHeader"
           transitionAppear={ true }
-          transitionAppearTimeout={ 400 }
+          transitionAppearTimeout={ 500 }
           transitionEnter={ false }
           transitionLeave={ false }
           >
@@ -54,13 +55,15 @@ class Film extends Component {
             backdrop={this.state.backdrop}
             tagline={this.state.tagline}
             title={this.state.title} />
+        </CSSTransitionGroup>
+        <TransitionGroup>
           <FilmBody
             overview={this.state.overview}
             poster={this.state.poster}
             releaseDate={this.state.releaseDate}
             title={this.state.title}
-            voteAvg={this.state.voteAvg}/>
-        </ReactCSSTransitionGroup>
+            voteAvg={this.state.voteAvg} />
+        </TransitionGroup>
       </div>
     )
   }

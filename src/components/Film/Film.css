@@ -8,8 +8,6 @@
 }
 
 .film-header-container {
-  opacity: 0;
-  transform: translateY(-100%);
   transition: all .2s ease-out;
 }
 
@@ -91,4 +89,14 @@
   .film-overview, .film-release-date, .film-vote-average {
     padding-bottom: 8%;
   }
+}
+
+/*React CSS Transition Group*/
+.ShowFilmHeader-appear {
+  transform: translateY(-100%);
+}
+
+.ShowFilmHeader-appear.ShowFilmHeader-appear-active {
+  transform: translateY(0);
+  transition: all .5s ease-out;
 }
