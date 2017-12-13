@@ -13,8 +13,6 @@ class Home extends Component {
       show: false
     }
     this.allRefs = []
-    this.handleClick = this.handleClick.bind(this)
-    this.storeRef = this.storeRef.bind(this)
   }
 
   componentDidMount() {
@@ -22,18 +20,6 @@ class Home extends Component {
     getTopRated().then(response => {
       this.setState({topRatedList: response.data.results});
     })
-  }
-
-  storeRef(ref) {
-    this.allRefs.push(ref)
-  }
-
-  handleClick(id) {
-    const time = .25
-    gsap.hide(this.allRefs, null, time);
-    setTimeout(() => {
-      this.props.history.push(`/film/${id}`)
-    }, time*1000);
   }
 
   render() {
@@ -51,8 +37,6 @@ class Home extends Component {
                   title={x.title}
                   vote={x.vote_average}
                   index={i}
-                  handleClick={()=>this.handleClick(x.id)}
-                  storeRef={this.storeRef}
                 />
              }
             </ReactTransitionGroup>
