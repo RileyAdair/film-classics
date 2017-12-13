@@ -24,14 +24,12 @@ class Home extends Component {
     })
   }
 
-
   storeRef(ref) {
     this.allRefs.push(ref)
   }
 
-
   handleClick(id) {
-    const time = 2
+    const time = .25
     gsap.hide(this.allRefs, null, time);
     setTimeout(() => {
       this.props.history.push(`/film/${id}`)

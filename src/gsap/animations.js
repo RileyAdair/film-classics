@@ -14,18 +14,12 @@ export default {
         cb()
       },
     })
-
-    // return new TimelineMax()
-    //   .staggerTo(target, duration, {opacity: 0}, .2)
-    // }
-  },
-  showStagger(targets, cb) {
-
   },
   hide(target, cb, duration) {
     console.log('hide', target)
     return TweenMax.to(target, duration, {
       opacity: 0,
+      y: 80,
       onComplete() {
         cb ? cb() : null
       },

@@ -9,11 +9,9 @@ class TopRatedItem extends Component {
     this.state = {
 
     }
-    // this.handleClick = this.handleClick.bind(this)
   }
   // used when component is initially render w/ TransitionGroup
   componentWillAppear(cb) {
-    // const self = this
 
     const backdropPromise = new Promise((resolve, reject) => {
       this.backdrop.onload = (e) => {
@@ -46,16 +44,6 @@ class TopRatedItem extends Component {
   componentWillLeave(cb) {
       gsap.hide(this.item, cb)
   }
-
-  // handleClick() {
-  //   const time = 2
-  //   gsap.hide(this.item, null, time);
-  //   console.log("start")
-  //   setTimeout(() => {
-  //     console.log("end")
-  //     this.props.changePage()
-  //   }, time*1000);
-  // }
 
   render() {
     return (

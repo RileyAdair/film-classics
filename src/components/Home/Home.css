@@ -55,6 +55,7 @@
 
   .top-rated-item {
     margin-bottom: 6%;
+    min-height: 96%;
   }
 
   .item-backdrop {
@@ -83,5 +84,6 @@
 
   .top-rated-item {
     margin-bottom: 10%;
+    min-height: 94%;
   }
 }
